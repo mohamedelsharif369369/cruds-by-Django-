@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>
+My Site
+</title>
+</head>
+<body>
+<nav id="nav-menu-container">
+ <ul class="nav-menu">
+  <li class="menu-active">
+   <a href="{% url 'home' %}">الصفحه الرئيسيه</a>
+  </li>
+  
+  <li>
+   <a href="{% url 'accounts:profile' %}">صفحتك الشخصيه</a>
+  </li>
+  <li>
+   <a href="{% url 'accounts:loggedOut' %}">
+تسجيل الخروج</a>
+  </li>
+  <li>
+   <a href="{% url 'accounts:signup' %}">الاشتراك بالموقع بحساب جديد</a>
+  </li>
+</nav>
+</br>
+<div>
+<!-- بحث -->
+<form method="get">
+    <input type="text" name="q" placeholder="ابحث">
+    </br>
+    <button type="submit">بحث</button>
+</form>
+
+<br><br>
+</div>
+<div>
+<form method='post'>
+{% csrf_token %}
+{{ proForm.as_p }}
+<button type='submit'>أضافه</button>
+</form>
+</div>
+</br>
+<div>
+{% for p in pro %}
+<h1>{{ p.title }}</h1>
+<h3>{{ p.price }}</h3>
+{% if request.user == p.user %}
+    <a href="{% url 'edit' p.id %}">تعديل</a>
+    <a href="{% url 'delete' p.id %}">حذف</a>
+<h6>____________</h6>
+{% endif %}
+
+<h6>____________</h6>
+{% endfor %}
+</div>
+</body>
+</html>

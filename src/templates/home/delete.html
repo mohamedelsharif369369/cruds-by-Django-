@@ -1,0 +1,20 @@
+<html>
+<head><title>حذف المنتج</title></head>
+<body>
+
+<h1>حذف المنتج: {{ product.title }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> تأكيد الحذف</button>
+</form>
+
+<br>
+<a href="{% url 'home' %}">رجوع للصفحة الرئيسية</a>
+
+</body>
+</html>
+
+
+

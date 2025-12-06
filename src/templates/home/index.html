@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>My Site</title>
+</head>
+<body>
+
+<h1>اهلا بكم فى موقعى الرسمى</h1>
+
+<!-- بحث -->
+<form method="get">
+    <input type="text" name="q" placeholder="ابحث باسم المنتج أو السعر" />
+    <button type="submit">بحث</button>
+</form>
+
+<br><br>
+
+<!-- إضافة منتج -->
+<div>
+<form method='post'>
+{% csrf_token %}
+{{ proForm.as_p }}
+<button type='submit'>إضافة</button>
+</form>
+</div>
+
+<br>
+
+<!-- عرض المنتجات -->
+<div>
+{% for p in pro %}
+<h1>{{ p.title }}</h1>
+<h3>{{ p.price }}</h3>
+
+<a href="/edit/{{ p.id }}/">تعديل</a> |
+<a href="/delete/{{ p.id }}/" onclick="return confirm('هل تريد الحذف فعلاً؟');">حذف</a>
+
+<h6>____________</h6>
+{% endfor %}
+</div>
+
+</body>
+</html>

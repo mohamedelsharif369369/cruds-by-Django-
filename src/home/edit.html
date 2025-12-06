@@ -1,0 +1,17 @@
+<html>
+<head><title>تعديل المنتج</title></head>
+<body>
+
+<h1>تعديل المنتج: {{ product.title }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">حفظ التعديلات</button>
+</form>
+
+<br>
+<a href="/">رجوع للصفحة الرئيسية</a>
+
+</body>
+</html>
