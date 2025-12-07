@@ -1,1 +1,2 @@
 # cruds-by-Django-
+# CrudsDjangoWebsiteAndApp
