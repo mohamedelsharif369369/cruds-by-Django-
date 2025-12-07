@@ -1,1 +1,3 @@
 # CrudsDjangoWebApp
+# CrudsDjangoWebsiteAndApp
+# CrudsDjangoWebsiteAndApp
