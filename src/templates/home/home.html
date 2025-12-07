@@ -1,8 +1,15 @@
+{% load static %}
 <html>
 <head>
 <title>
 My Site
 </title>
+<link rel="manifest" href="{% static 'manifest.json' %}">
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("{% static 'serviceworker.js' %}");
+}
+</script>
 </head>
 <body>
 <nav id="nav-menu-container">
